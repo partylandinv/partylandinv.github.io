@@ -1,0 +1,101 @@
+
+<!-- saved from url=(0259)https://432476177-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.es.3Hvfq-qILUY.O%2Fd%3D1%2Frs%3DAHpOoo8S72uoBH2c-3rWI1ONnjoWzc4NtQ%2Fm%3D__features__ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base target="_blank">--><base href="." target="_blank">
+
+<style>
+
+td {border-style: solid;
+    border-color: #cccccc;
+ border-width: 0px;
+color: #F29A86;
+padding: 0px;
+font-size: 30px;
+font-family: Arial;
+ text-align: center;}
+
+th {
+ border-width: 0px;
+color: #c3a492;
+ text-align: center;
+padding: 0px;
+font-size: 12px;
+font-family: Times New Roman;}
+ 
+</style>
+
+
+  </head><body>
+
+    <!-- Contador regresivo -->
+    <section>
+   
+
+<table align="center" width="90%">
+    <tbody><tr>
+      <td><span id="days">124</span></td>
+      <td><span id="hours">6</span></td><td><span id="minutes">56</span></td>
+      <td><span id="seconds">0</span></td>
+    </tr>
+    <tr>
+      <th>Días</th>
+      <th>Horas</th>
+      <th>Minutos</th>
+     <th>Segundos</th>
+    </tr>
+</tbody></table>
+
+    </section> 
+    <!-- Fin contador regresivo -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => { 
+
+        //===
+        // VARIABLES
+        //===
+        const DATE_TARGET = new Date('09/19/2023 0:01 AM');
+        // DOM for render
+        const SPAN_DAYS = document.querySelector('span#days');
+        const SPAN_HOURS = document.querySelector('span#hours');
+        const SPAN_MINUTES = document.querySelector('span#minutes');
+        const SPAN_SECONDS = document.querySelector('span#seconds');
+        // Milliseconds for the calculations
+        const MILLISECONDS_OF_A_SECOND = 1000;
+        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
+
+        //===
+        // FUNCTIONS
+        //===
+
+        /**
+        * Method that updates the countdown and the sample
+        */
+        function updateCountdown() {
+            // Calcs
+            const NOW = new Date()
+            const DURATION = DATE_TARGET - NOW;
+            const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+            const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+            const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+            const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+            //
+
+            // Render
+            SPAN_DAYS.textContent = REMAINING_DAYS;
+            SPAN_HOURS.textContent = REMAINING_HOURS;
+            SPAN_MINUTES.textContent = REMAINING_MINUTES;
+            SPAN_SECONDS.textContent = REMAINING_SECONDS;
+        }
+
+        //===
+        // INIT
+        //===
+        updateCountdown();
+        // Refresh every second
+        setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+    });
+    </script>
+  
+</body></html>
